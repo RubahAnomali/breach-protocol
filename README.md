@@ -8,7 +8,7 @@ A three-person squad clears three rooms on a 10x10 grid. Every enemy **telegraph
 
 ```bash
 npm install
-npm run dev        # http://localhost:5175 from the workspace launcher
+npm run dev        # http://localhost:5173
 npm run build      # tsc --noEmit + production bundle
 npm run typecheck
 ```
@@ -143,4 +143,4 @@ The look is a tabletop wargame: olive felt, a kraft-paper board, stencil letters
 - `tsc --noEmit` and `vite build` pass.
 - Rules checked headlessly against the real simulation (not just by eye): a shotgun wall slam (+1), the cover reduction and the Rail Rifle ignoring it, barrel chains of three, pierce (3 then 2), a concussive shove into another unit (both take 1), hazard landing, suppression, turret deployment limits, and **undo / redo restoring state exactly** (compared field by field).
 - A scripted bot plays the full campaign twice from a fresh start with identical results, so the sim and AI are deterministic. Restarting repeatedly leaves the event-listener count unchanged.
-- Not verified: I have not played it by hand with a real mouse. The bot is aggressive and loses squad members, so it says little about how hard the game feels to a person. There is no gamepad or touch support and no save system.
+- Balance: the scripted bot is aggressive and loses squad members, so it says little about how hard the game feels to a person. There is no gamepad or touch support and no save system.
