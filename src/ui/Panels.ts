@@ -232,8 +232,12 @@ export class Panels {
     this.buttons = [];
     c.fillStyle = 'rgba(28,33,25,0.93)';
     c.fillRect(0, 0, W, H);
-    head(c, 'BREACH', W / 2 - 170, 120, 92, PAL.paper, 'center');
-    head(c, 'PROTOCOL', W / 2 + 190, 120, 92, PAL.mustard, 'center');
+    // Measured, not hard-coded centres: at 92px the two words are wider than the old 360px gap and overlapped.
+    c.font = `900 92px ${HEAD}`;
+    const first = c.measureText('BREACH ').width;
+    const x0 = W / 2 - (first + c.measureText('PROTOCOL').width) / 2;
+    head(c, 'BREACH', x0, 120, 92, PAL.paper);
+    head(c, 'PROTOCOL', x0 + first, 120, 92, PAL.mustard);
     txt(c, 'A three-room tactical squad puzzle. Read the telegraphs, then break them.', W / 2, 178, 17, PAL.kraft, 'center');
     const x = 200;
     let y = 236;
